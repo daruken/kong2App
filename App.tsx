@@ -2,7 +2,7 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Home from './src/pages/home/Home';
-import Notification from './src/pages/test/Notification';
+import Notification from './src/pages/notification/Notification';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Search from './src/pages/search/Search';
 import Settings from './src/pages/settings/Settings';
