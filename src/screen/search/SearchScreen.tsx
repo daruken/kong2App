@@ -2,7 +2,7 @@ import {SearchBar} from 'react-native-elements';
 import {useState} from 'react';
 import {StyleSheet, View} from 'react-native';
 
-const Search = (): React.ReactElement => {
+const SearchScreen = (): React.ReactElement => {
   const [search, setSearch] = useState("");
 
   // eslint-disable-next-line @typescript-eslint/no-shadow
@@ -49,4 +49,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Search;
+export default SearchScreen;

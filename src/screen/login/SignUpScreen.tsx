@@ -1,12 +1,13 @@
 import * as React from 'react';
 import {Button} from 'react-native-elements';
 import {StyleSheet, TextInput, View} from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import AsyncStorage from '@react-native-community/async-storage';
 
-function SignIn() {
+function SignUpScreen() {
   const [username, setUsername] = React.useState('');
   const [password, setPassword] = React.useState('');
 
+  // eslint-disable-next-line @typescript-eslint/no-shadow
   const signIn = async (username: string, password: string) => {
     try {
       const response = await fetch(
@@ -26,7 +27,7 @@ function SignIn() {
       const responseJson = await response.json();
       await AsyncStorage.setItem('jwt', responseJson.token);
     } catch (e) {
-      console.log('Failed to login. error: ' + e);
+      console.log('Failed to sign-in. error: ' + e);
     }
   };
 
@@ -50,7 +51,7 @@ function SignIn() {
   );
 }
 
-export default SignIn;
+export default SignUpScreen;
 
 const styles = StyleSheet.create({
   container: {

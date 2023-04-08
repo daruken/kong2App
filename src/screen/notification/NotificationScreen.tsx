@@ -1,6 +1,6 @@
 import {ScrollView, Text} from 'react-native';
 
-const Notification = () => {
+const NotificationScreen = () => {
   return (
     // eslint-disable-next-line react/react-in-jsx-scope
     <ScrollView>
@@ -9,4 +9,4 @@ const Notification = () => {
   );
 };
 
-export default Notification;
+export default NotificationScreen;

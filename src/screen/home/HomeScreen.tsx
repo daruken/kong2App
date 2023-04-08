@@ -1,7 +1,7 @@
 import React from 'react';
 import {Image, ScrollView, Text, View} from 'react-native';
 
-const Home = () => {
+const HomeScreen = () => {
   return (
     <ScrollView>
       {/* eslint-disable-next-line react-native/no-inline-styles */}
@@ -49,4 +49,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default HomeScreen;

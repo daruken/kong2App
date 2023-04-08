@@ -1,6 +1,6 @@
 import {ScrollView, Text} from 'react-native';
 
-const Settings = () => {
+const SettingsScreen = () => {
   return (
     // eslint-disable-next-line react/react-in-jsx-scope
     <ScrollView>
@@ -10,4 +10,4 @@ const Settings = () => {
   );
 };
 
-export default Settings;
+export default SettingsScreen;
