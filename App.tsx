@@ -1,77 +1,70 @@
-import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Home from './src/pages/home/Home';
-import Notification from './src/pages/notification/Notification';
+import * as React from 'react';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import HomeScreen from './src/screen/home/HomeScreen';
+import NotificationScreen from './src/screen/notification/NotificationScreen';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import Search from './src/pages/search/Search';
-import Settings from './src/pages/settings/Settings';
-import Menu from './src/pages/menu/Menu';
+import SearchScreen from './src/screen/search/SearchScreen';
+import SettingsScreen from './src/screen/settings/SettingsScreen';
+import MenuScreen from './src/screen/menu/MenuScreen';
+import {createStackNavigator} from '@react-navigation/stack';
+import SignInScreen from './src/screen/login/SignInScreen';
+import {NavigationContainer} from '@react-navigation/native';
+import SignUpScreen from './src/screen/login/SignUpScreen';
+import SplashScreen from './src/screen/SplashScreen';
+import DrawerNavigationRoutes from './src/screen/DrawerNavigationRoutes';
 
-const Tab = createBottomTabNavigator();
+const Stack = createStackNavigator();
 
-const MyTabs = () => {
+const Auth = () => {
   return (
-    <Tab.Navigator
-      initialRouteName='Home'
-      screenOptions={{
-        tabBarActiveTintColor: '#fb8c00',
-        tabBarShowLabel: false
-      }}
-    >
-      <Tab.Screen
-        name="Menu"
-        component={Menu}
+    <Stack.Navigator initialRouteName="LoginScreen">
+      <Stack.Screen
+        name="SignInScreen"
+        component={SignInScreen}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="SignUpScreen"
+        component={SignUpScreen}
         options={{
-          title: 'Category',
-          tabBarIcon: ({ color, size }) => (
-            <Icon name='menu' color={color} size={size} />
-          ),
-        }} />
-      <Tab.Screen
-        name="Search"
-        component={Search}
-        options={{
-          title: 'Search',
-          tabBarIcon: ({ color, size }) => (
-            <Icon name='search' color={color} size={size} />
-          ),
-        }} />
-      <Tab.Screen
-        name="Home"
-        component={Home}
-        options={{
-          title: 'Home',
-          tabBarIcon: ({ color, size }) => (
-            <Icon name='home' color={color} size={size} />
-          )
-        }} />
-      <Tab.Screen
-        name="Notification"
-        component={Notification}
-        options={{
-          title: 'Notification',
-          tabBarIcon: ({ color, size }) => (
-            <Icon name='notifications' color={color} size={size} />
-          ),
-        }} />
-      <Tab.Screen
-        name="Settings"
-        component={Settings}
-        options={{
-          title: 'Settings',
-          tabBarIcon: ({ color, size }) => (
-            <Icon name='settings' color={color} size={size} />
-          ),
-        }} />
-    </Tab.Navigator>
+          title: 'Register', //Set Header Title
+          headerStyle: {
+            backgroundColor: '#307ecc', //Set Header color
+          },
+          headerTintColor: '#fff', //Set Header text color
+          headerTitleStyle: {
+            fontWeight: 'bold', //Set Header text style
+          },
+        }}
+      />
+    </Stack.Navigator>
   );
-}
+};
 
 function App() {
   return (
     <NavigationContainer>
-      <MyTabs />
+      <Stack.Navigator initialRouteName="SplashScreen">
+        {/* SplashScreen which will come once for 5 Seconds */}
+        <Stack.Screen
+          name="SplashScreen"
+          component={SplashScreen}
+          // Hiding header for Splash Screen
+          options={{headerShown: false}}
+        />
+        {/* Auth Navigator which includer Login Signup will come once */}
+        <Stack.Screen
+          name="Auth"
+          component={Auth}
+          options={{headerShown: false}}
+        />
+        {/* Navigation Drawer as a landing page */}
+        <Stack.Screen
+          name="DrawerNavigationRoutes"
+          component={DrawerNavigationRoutes}
+          options={{headerShown: false}}
+        />
+      </Stack.Navigator>
     </NavigationContainer>
   );
 }
