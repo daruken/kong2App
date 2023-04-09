@@ -79,7 +79,7 @@ const SignInScreen = ({navigation}) => {
                 style={styles.inputStyle}
                 onChangeText={Username => setUsername(Username)}
                 placeholder="Username"
-                placeholderTextColor="#8b9cb5"
+                placeholderTextColor="#d8d8d8"
                 autoCapitalize="none"
                 keyboardType="email-address"
                 returnKeyType="next"
@@ -95,7 +95,7 @@ const SignInScreen = ({navigation}) => {
                 style={styles.inputStyle}
                 onChangeText={Password => setPassword(Password)}
                 placeholder="Password"
-                placeholderTextColor="#8b9cb5"
+                placeholderTextColor="#d8d8d8"
                 keyboardType="default"
                 ref={passwordInputRef}
                 onSubmitEditing={Keyboard.dismiss}
@@ -131,7 +131,7 @@ const styles = StyleSheet.create({
   mainBody: {
     flex: 1,
     justifyContent: 'center',
-    backgroundColor: '#307ecc',
+    backgroundColor: '#04B4AE',
     alignContent: 'center',
   },
   SectionStyle: {
@@ -143,9 +143,8 @@ const styles = StyleSheet.create({
     margin: 10,
   },
   buttonStyle: {
-    backgroundColor: '#7DE24E',
+    backgroundColor: '#f2f2f2',
     borderWidth: 0,
-    color: '#FFFFFF',
     borderColor: '#7DE24E',
     height: 40,
     alignItems: 'center',
@@ -156,7 +155,7 @@ const styles = StyleSheet.create({
     marginBottom: 25,
   },
   buttonTextStyle: {
-    color: '#FFFFFF',
+    color: '#000000',
     paddingVertical: 10,
     fontSize: 16,
   },

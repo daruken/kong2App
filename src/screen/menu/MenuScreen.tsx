@@ -1,8 +1,7 @@
 import React from 'react';
-import {ScrollView, Text} from 'react-native';
+import {SafeAreaView, ScrollView, Text} from 'react-native';
 import {Button} from 'react-native-elements';
 import AsyncStorage from '@react-native-community/async-storage';
-import SplashScreen from '../SplashScreen';
 
 // @ts-ignore
 const MenuScreen = ({navigation}) => {
@@ -21,10 +20,12 @@ const MenuScreen = ({navigation}) => {
   };
 
   return (
-    <ScrollView>
-      <Text>Menu ~</Text>
-      <Button title="Sign Out" onPress={onClickHandler} />
-    </ScrollView>
+    <SafeAreaView>
+      <ScrollView>
+        <Text>Menu ~</Text>
+        <Button title="Sign Out" onPress={onClickHandler} />
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 
