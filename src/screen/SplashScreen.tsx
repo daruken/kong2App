@@ -13,10 +13,10 @@ const SplashScreen = ({navigation}) => {
       //Check if user_id is set or not
       //If not then send for Authentication
       //else send to HomeScreen Screen
-      AsyncStorage.getItem('user_id').then(value =>
+      AsyncStorage.getItem('jwt').then(value =>
         navigation.replace(value === null ? 'Auth' : 'DrawerNavigationRoutes'),
       );
-    }, 5000);
+    }, 500);
   }, []);
 
   return (
@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#307ecc',
+    backgroundColor: '#04B4AE',
   },
   activityIndicator: {
     alignItems: 'center',

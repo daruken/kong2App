@@ -1,11 +1,4 @@
 import * as React from 'react';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import HomeScreen from './src/screen/home/HomeScreen';
-import NotificationScreen from './src/screen/notification/NotificationScreen';
-import Icon from 'react-native-vector-icons/MaterialIcons';
-import SearchScreen from './src/screen/search/SearchScreen';
-import SettingsScreen from './src/screen/settings/SettingsScreen';
-import MenuScreen from './src/screen/menu/MenuScreen';
 import {createStackNavigator} from '@react-navigation/stack';
 import SignInScreen from './src/screen/login/SignInScreen';
 import {NavigationContainer} from '@react-navigation/native';

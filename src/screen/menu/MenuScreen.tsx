@@ -1,34 +1,31 @@
 import React from 'react';
-import {ScrollView, Text} from 'react-native';
+import {SafeAreaView, ScrollView, Text} from 'react-native';
 import {Button} from 'react-native-elements';
 import AsyncStorage from '@react-native-community/async-storage';
 
 // @ts-ignore
 const MenuScreen = ({navigation}) => {
   const onClickHandler = async () => {
-    let userToken = await AsyncStorage.getItem('jwt');
-
-    fetch('http://localhost:8080/api/v1/members/sign-out', {
-      method: 'POST',
-      headers: {
-        Authorization: 'Bearer ' + userToken,
+    const response = await fetch(
+      'http://localhost:8080/api/v1/members/sign-out',
+      {
+        method: 'POST',
       },
-    })
-      .then(response => response.json())
-      .then(responseJson => {
-        AsyncStorage.removeItem('jwt');
-        //navigation.replace('DrawerNavigationRoutes');
-      })
-      .catch(error => {
-        console.error(error);
-      });
+    );
+
+    if (response.status === 200) {
+      await AsyncStorage.removeItem('jwt');
+      navigation.replace('SplashScreen');
+    }
   };
 
   return (
-    <ScrollView>
-      <Text>Menu ~</Text>
-      <Button title="Sign Out" onPress={() => onClickHandler} />
-    </ScrollView>
+    <SafeAreaView>
+      <ScrollView>
+        <Text>Menu ~</Text>
+        <Button title="Sign Out" onPress={onClickHandler} />
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 

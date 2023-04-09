@@ -1,9 +1,9 @@
 import {SearchBar} from 'react-native-elements';
-import {useState} from 'react';
-import {StyleSheet, View} from 'react-native';
+import React, {useState} from 'react';
+import {SafeAreaView, StyleSheet, View} from 'react-native';
 
 const SearchScreen = (): React.ReactElement => {
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState('');
 
   // eslint-disable-next-line @typescript-eslint/no-shadow
   const updateSearch = async (search: string) => {
@@ -31,15 +31,17 @@ const SearchScreen = (): React.ReactElement => {
 
   return (
     // eslint-disable-next-line react/react-in-jsx-scope
-    <View style={styles.view}>
-      {/* eslint-disable-next-line react/react-in-jsx-scope */}
-      <SearchBar
-        placeholder="검색어를 입력해주세요"
-        onChangeText={updateSearch}
-        value={search}
-        platform={'default'}
-      />
-    </View>
+    <SafeAreaView>
+      <View style={styles.view}>
+        {/* eslint-disable-next-line react/react-in-jsx-scope */}
+        <SearchBar
+          placeholder="검색어를 입력해주세요"
+          onChangeText={updateSearch}
+          value={search}
+          platform={'default'}
+        />
+      </View>
+    </SafeAreaView>
   );
 };
 
