@@ -2,12 +2,13 @@ import React from 'react';
 import {SafeAreaView, ScrollView, Text} from 'react-native';
 import {Button} from 'react-native-elements';
 import AsyncStorage from '@react-native-community/async-storage';
+import * as common from '../component/Common';
 
 // @ts-ignore
 const MenuScreen = ({navigation}) => {
   const onClickHandler = async () => {
     const response = await fetch(
-      'http://localhost:8080/api/v1/members/sign-out',
+      common.getAPIHost() + '/api/v1/members/sign-out',
       {
         method: 'POST',
       },

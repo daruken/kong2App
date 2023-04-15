@@ -20,13 +20,13 @@ const Auth = () => {
         name="SignUpScreen"
         component={SignUpScreen}
         options={{
-          title: 'Register', //Set Header Title
+          title: 'Register',
           headerStyle: {
-            backgroundColor: '#307ecc', //Set Header color
+            backgroundColor: '#307ecc',
           },
-          headerTintColor: '#fff', //Set Header text color
+          headerTintColor: '#fff',
           headerTitleStyle: {
-            fontWeight: 'bold', //Set Header text style
+            fontWeight: 'bold',
           },
         }}
       />

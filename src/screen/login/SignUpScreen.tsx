@@ -2,6 +2,7 @@ import * as React from 'react';
 import {Button} from 'react-native-elements';
 import {StyleSheet, TextInput, View} from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
+import * as common from '../component/Common';
 
 function SignUpScreen() {
   const [username, setUsername] = React.useState('');
@@ -11,7 +12,7 @@ function SignUpScreen() {
   const signIn = async (username: string, password: string) => {
     try {
       const response = await fetch(
-        'http://localhost:8080/api/v1/members/sign-in',
+        common.getAPIHost() + '/api/v1/members/sign-in',
         {
           method: 'POST',
           headers: {
