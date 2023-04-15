@@ -1,6 +1,7 @@
 import {SearchBar} from 'react-native-elements';
 import React, {useState} from 'react';
 import {SafeAreaView, StyleSheet, View} from 'react-native';
+import * as common from '../component/Common';
 
 const SearchScreen = (): React.ReactElement => {
   const [search, setSearch] = useState('');
@@ -9,7 +10,7 @@ const SearchScreen = (): React.ReactElement => {
   const updateSearch = async (search: string) => {
     try {
       const response = await fetch(
-        'http://localhost:8080/api/v1/yogurts/search',
+        common.getAPIHost() + '/api/v1/yogurts/search',
         {
           method: 'POST',
           headers: {

@@ -13,8 +13,9 @@ import {
 } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 import Loader from '../component/Loader';
+import * as common from '../component/Common';
 
-const SignInScreen = ({navigation}) => {
+const SignInScreen = ({navigation}: any) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
@@ -34,7 +35,7 @@ const SignInScreen = ({navigation}) => {
     }
     setLoading(true);
 
-    fetch('http://localhost:8080/api/v1/members/sign-in', {
+    fetch(common.getAPIHost() + '/api/v1/members/sign-in', {
       method: 'POST',
       body: JSON.stringify({
         username: username,
