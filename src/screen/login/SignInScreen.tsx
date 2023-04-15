@@ -1,5 +1,5 @@
-import * as React from 'react';
-import {createRef, useState} from 'react';
+import * as React from 'react'
+import {createRef, useState} from 'react'
 import {
   Alert,
   Keyboard,
@@ -10,30 +10,30 @@ import {
   TextInput,
   TouchableOpacity,
   View,
-} from 'react-native';
-import AsyncStorage from '@react-native-community/async-storage';
-import Loader from '../component/Loader';
-import * as common from '../component/Common';
+} from 'react-native'
+import AsyncStorage from '@react-native-community/async-storage'
+import Loader from '../component/Loader'
+import * as common from '../component/Common'
 
 const SignInScreen = ({navigation}: any) => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [loading, setLoading] = useState(false);
-  const [errortext, setErrortext] = useState('');
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
+  const [loading, setLoading] = useState(false)
+  const [errortext, setErrortext] = useState('')
 
-  const passwordInputRef = createRef();
+  const passwordInputRef = createRef()
 
   const handleSubmitPress = () => {
-    setErrortext('');
+    setErrortext('')
     if (!username) {
-      Alert.alert('ID를 입력하시기 바랍니다.');
-      return;
+      Alert.alert('ID를 입력하시기 바랍니다.')
+      return
     }
     if (!password) {
-      Alert.alert('비밀번호를 입력하시기 바랍니다.');
-      return;
+      Alert.alert('비밀번호를 입력하시기 바랍니다.')
+      return
     }
-    setLoading(true);
+    setLoading(true)
 
     fetch(common.getAPIHost() + '/api/v1/members/sign-in', {
       method: 'POST',
@@ -48,20 +48,20 @@ const SignInScreen = ({navigation}: any) => {
       .then(response => response.json())
       .then(responseJson => {
         //Hide Loader
-        setLoading(false);
+        setLoading(false)
 
         if (responseJson.isLogin === true) {
-          AsyncStorage.setItem('jwt', responseJson.token);
-          navigation.replace('DrawerNavigationRoutes');
+          AsyncStorage.setItem('jwt', responseJson.token)
+          navigation.replace('DrawerNavigationRoutes')
         } else {
-          setErrortext('사용자 ID 또는 비밀번호가 일치하지 않습니다.');
+          setErrortext('사용자 ID 또는 비밀번호가 일치하지 않습니다.')
         }
       })
       .catch(error => {
-        setLoading(false);
-        console.error(error);
-      });
-  };
+        setLoading(false)
+        console.error(error)
+      })
+  }
 
   return (
     <View style={styles.mainBody}>
@@ -84,9 +84,7 @@ const SignInScreen = ({navigation}: any) => {
                 autoCapitalize="none"
                 keyboardType="email-address"
                 returnKeyType="next"
-                onSubmitEditing={() =>
-                  passwordInputRef.current && passwordInputRef.current.focus()
-                }
+                onSubmitEditing={() => passwordInputRef.current}
                 underlineColorAndroid="#f000"
                 blurOnSubmit={false}
               />
@@ -98,7 +96,6 @@ const SignInScreen = ({navigation}: any) => {
                 placeholder="Password"
                 placeholderTextColor="#d8d8d8"
                 keyboardType="default"
-                ref={passwordInputRef}
                 onSubmitEditing={Keyboard.dismiss}
                 blurOnSubmit={false}
                 secureTextEntry={true}
@@ -117,16 +114,16 @@ const SignInScreen = ({navigation}: any) => {
             </TouchableOpacity>
             <Text
               style={styles.registerTextStyle}
-              onPress={() => navigation.navigate('RegisterScreen')}>
+              onPress={() => navigation.navigate('SignUpScreen')}>
               New Here ? Register
             </Text>
           </KeyboardAvoidingView>
         </View>
       </ScrollView>
     </View>
-  );
-};
-export default SignInScreen;
+  )
+}
+export default SignInScreen
 
 const styles = StyleSheet.create({
   mainBody: {
@@ -182,4 +179,4 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 14,
   },
-});
+})
