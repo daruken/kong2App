@@ -1,12 +1,12 @@
-import * as React from 'react';
-import {createStackNavigator} from '@react-navigation/stack';
-import SignInScreen from './src/screen/login/SignInScreen';
-import {NavigationContainer} from '@react-navigation/native';
-import SignUpScreen from './src/screen/login/SignUpScreen';
-import SplashScreen from './src/screen/SplashScreen';
-import DrawerNavigationRoutes from './src/screen/DrawerNavigationRoutes';
+import * as React from 'react'
+import {createStackNavigator} from '@react-navigation/stack'
+import SignInScreen from './src/screen/login/SignInScreen'
+import {NavigationContainer} from '@react-navigation/native'
+import SignUpScreen from './src/screen/login/SignUpScreen'
+import SplashScreen from './src/screen/SplashScreen'
+import DrawerNavigationRoutes from './src/screen/DrawerNavigationRoutes'
 
-const Stack = createStackNavigator();
+const Stack = createStackNavigator()
 
 const Auth = () => {
   return (
@@ -14,15 +14,18 @@ const Auth = () => {
       <Stack.Screen
         name="SignInScreen"
         component={SignInScreen}
-        options={{headerShown: false}}
+        options={{
+          title: '로그인',
+          headerShown: false,
+        }}
       />
       <Stack.Screen
         name="SignUpScreen"
         component={SignUpScreen}
         options={{
-          title: 'Register',
+          title: '회원가입',
           headerStyle: {
-            backgroundColor: '#307ecc',
+            backgroundColor: '#04B4AE',
           },
           headerTintColor: '#fff',
           headerTitleStyle: {
@@ -31,8 +34,8 @@ const Auth = () => {
         }}
       />
     </Stack.Navigator>
-  );
-};
+  )
+}
 
 function App() {
   return (
@@ -59,7 +62,7 @@ function App() {
         />
       </Stack.Navigator>
     </NavigationContainer>
-  );
+  )
 }
 
-export default App;
+export default App

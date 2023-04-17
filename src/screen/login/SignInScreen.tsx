@@ -26,11 +26,11 @@ const SignInScreen = ({navigation}: any) => {
   const handleSubmitPress = () => {
     setErrortext('')
     if (!username) {
-      Alert.alert('ID를 입력하시기 바랍니다.')
+      setErrortext('ID를 입력하시기 바랍니다.')
       return
     }
     if (!password) {
-      Alert.alert('비밀번호를 입력하시기 바랍니다.')
+      setErrortext('비밀번호를 입력하시기 바랍니다.')
       return
     }
     setLoading(true)
@@ -110,12 +110,12 @@ const SignInScreen = ({navigation}: any) => {
               style={styles.buttonStyle}
               activeOpacity={0.5}
               onPress={handleSubmitPress}>
-              <Text style={styles.buttonTextStyle}>SIGN IN</Text>
+              <Text style={styles.buttonTextStyle}>로그인</Text>
             </TouchableOpacity>
             <Text
               style={styles.registerTextStyle}
               onPress={() => navigation.navigate('SignUpScreen')}>
-              New Here ? Register
+              회원가입
             </Text>
           </KeyboardAvoidingView>
         </View>

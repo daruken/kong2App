@@ -141,7 +141,7 @@ function SignUpScreen({navigation}: any) {
           style={styles.buttonStyle}
           activeOpacity={0.5}
           onPress={signUp}>
-          <Text style={styles.buttonTextStyle}>SIGN UP</Text>
+          <Text style={styles.buttonTextStyle}>가입</Text>
         </TouchableOpacity>
       </KeyboardAvoidingView>
     </View>
@@ -154,7 +154,7 @@ const styles = StyleSheet.create({
   mainBody: {
     flex: 1,
     justifyContent: 'center',
-    backgroundColor: '#04B4AE',
+    backgroundColor: '#ffffff',
     alignContent: 'center',
   },
   SectionStyle: {
@@ -166,7 +166,7 @@ const styles = StyleSheet.create({
     margin: 10,
   },
   buttonStyle: {
-    backgroundColor: '#f2f2f2',
+    backgroundColor: '#04B4AE',
     borderWidth: 0,
     borderColor: '#7DE24E',
     height: 40,
@@ -178,7 +178,7 @@ const styles = StyleSheet.create({
     marginBottom: 25,
   },
   buttonTextStyle: {
-    color: '#000000',
+    color: '#ffffff',
     paddingVertical: 10,
     fontSize: 16,
   },
